@@ -1,0 +1,22 @@
+<section class="container mt-2">
+  <h1 class="">LISTA DE HEROES</h1>
+
+  <ng-container *ngIf="heroDeleted; else elseTemplate">
+    <h3>Ultimo heroe borrado: {{ heroDeleted }}</h3>
+  </ng-container>
+  <ng-template #elseTemplate>
+    <h3>No has borrado nada</h3>
+  </ng-template>
+
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let name of heroName">{{ name }}</li>
+  </ul>
+
+  <button
+    class="btn btn-primary mt-2"
+    (click)="removeHero()"
+    *ngIf="heroName.length > 0"
+  >
+    Borrar heroe
+  </button>
+</section>
